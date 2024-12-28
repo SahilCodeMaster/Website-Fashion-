@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        .kamal1{
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 15%;
+            background-color:rgba(255, 255, 255, 0.63);
+            width: 450px;
+            height: auto;
+            margin-left: -20%;
+        }
+        .kamal2{
+            margin-top: 1rem;
+        }
+        body{
+            background-image: url("cartback.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            text-decoration: underline;
+        }
+        .kamal2{
+            color: black;
+            background-color: transparent;
+            border-radius: 5px;
+        }
+        .kamal2:hover{
+            background-color: rgb(255, 145, 0);
+        }
+        h2{
+            color: red;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .kamal8{
+            margin-left: 30%;
+            margin-right: 25%;
+            height: 50px;
+            width: auto;
+            border-radius: 10px;
+            margin-top: 15%;
+            justify-content: center;
+        }
+        h5{
+              text-decoration: underline;
+              color: rgb(17, 0, 255);
+              font-size: 20px;
+        }
+        @media screen and (max-width :400px) {
+            body{
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                background-color: rgb(0, 174, 255);
+                background-image: none;
+            }
+            .kamal1{
+                justify-content: center;
+                text-align: center;
+                margin-left: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="kamal1">
+        <img class="kamal8" src="logo.jpeg"><h2>Fashio Hub</h2>
+        <form onsubmit="return validateLogin()">
+            <h5>LOG IN</h5>
+            <br>
+            Username: <input id="username" type="text" placeholder="Enter Your Username" required><br><br>
+            Password: <input id="password" type="password" placeholder="Enter Your Password Here" required><br><br>
+            <button class="kamal2" type="submit">Log in</button>
+            <br>
+            <br>
+            Do not have an account? <a href="create.html">Click Here</a>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            // Retrieve users from localStorage
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Check if the entered username and password match any user
+            let validUser = users.find(user => user.username === username && user.password === password);
+
+            if (validUser) {
+                alert("Login successful!");
+                window.location.href = "index.html"; // Redirect to a welcome or dashboard page
+            } else {
+                alert("Invalid username or password.");
+            }
+
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>

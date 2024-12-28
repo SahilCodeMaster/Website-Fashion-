@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> <!-- Google Font -->
+    <style>
+        body {
+            background-image: url("cartback.jpeg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .kamal1 {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1, h2 {
+            color: #333;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #ff6f61;
+            text-decoration: underline;
+        }
+
+        h5 {
+            color: #333;
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-decoration: underline;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s ease-in-out;
+        }
+
+        input:focus {
+            border-color: #ff6f61;
+            box-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+        }
+
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #ff8f70;
+            transform: translateY(-3px);
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a:hover {
+            color: #ff6f61;
+        }
+
+        .kamal8 {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .kamal1 {
+                width: 90%;
+                margin: 0 10px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="kamal1">
+        <img class="kamal8" src="LOGO.jpg" alt="Logo">
+        <h2>Fashion Hub</h2>
+        <form onsubmit="return validateLogin()">
+            <h5>Log In</h5>
+            <input id="username" type="text" placeholder="Enter Your Username" required><br>
+            <input id="password" type="password" placeholder="Enter Your Password" required><br>
+            <button type="submit">Log In</button>
+            <br><br>
+            Do not have an account? <a href="c.html">Click Here</a>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            // Retrieve users from localStorage
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Check if the entered username and password match any user
+            let validUser = users.find(user => user.username === username && user.password === password);
+
+            if (validUser) {
+                alert("Login successful!");
+                window.location.href = "index.html"; // Redirect to a welcome or dashboard page
+            } else {
+                alert("Invalid username or password.");
+            }
+
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>

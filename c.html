@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> <!-- Google Font -->
+    <style>
+        body {
+            background-image: url("hgh.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .kamal1 {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-out;
+        }
+
+        h2 {
+            color: #ff6f61;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 18px;
+        }
+
+        .kamal8 {
+            width: 80px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s ease-in-out;
+        }
+
+        input:focus {
+            border-color: #ff6f61;
+            box-shadow: 0 0 10px rgba(255, 111, 97, 0.5);
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+            text-align: left;
+            width: 100%;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #ff8f70;
+            transform: translateY(-3px);
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a:hover {
+            color: #ff6f61;
+        }
+
+        .kamal4 {
+            width: 60px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            body {
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                background-color: rgb(0, 174, 255);
+                background-image: none;
+            }
+            .kamal1 {
+                width: 90%;
+                padding: 20px;
+            }
+            .kamal4 {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <form onsubmit="return data()">
+        <div class="kamal1">
+            <a href="index.html"><img class="kamal8" src="LOGO.jpg" alt="Logo"></a>
+            <h2>Fashion Hub</h2>
+            <h3>Create an account</h3>
+            <br>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter Your Name" required><br><br>
+
+            <label for="one">Password:</label>
+            <input id="one" type="password" placeholder="Enter Your Password" required><br><br>
+
+            <label for="t">Password Again:</label>
+            <input id="t" type="password" placeholder="Enter Your Password Again" required><br><br>
+
+            <label for="th">Email:</label>
+            <input id="th" type="email" placeholder="Enter Your Email Here" required><br><br>
+
+            <button class="kamal2" type="submit">Create</button>
+        </div>
+    </form>
+
+    <script>
+        function data() {
+            let one = document.querySelector("#one");
+            let t = document.querySelector("#t");
+            let th = document.querySelector("#th");
+            let name = document.querySelector("#name");
+
+            // Check if all fields are filled
+            if (one.value === "" || t.value === "" || th.value === "" || name.value === "") {
+                alert("All fields are necessary.");
+                return false;
+            }
+
+            // Check if passwords match
+            if (one.value !== t.value) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            // Check if password is at least 6 characters long
+            if (one.value.length < 6 || t.value.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+            // Retrieve existing users from localStorage (if any)
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Create a new user object
+            let newUser = {
+                username: name.value,
+                password: one.value,  // Password should be stored as plaintext for now
+                email: th.value
+            };
+
+            // Add the new user to the users array
+            users.push(newUser);
+
+            // Save the updated users array to localStorage
+            localStorage.setItem("users", JSON.stringify(users));
+
+            // Redirect to another page or show success message
+            alert("Account created successfully!");
+            window.location.href = "index.html";  // Redirect to the home page or login page
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>

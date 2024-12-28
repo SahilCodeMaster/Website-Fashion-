@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            color: #333;
+        }
+
+        /* Main Container Styling */
+        .order-container {
+            background-color: #ffffff;
+            padding: 40px;
+            width: 450px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        /* Heading Styles */
+        h1 {
+            color: #4caf50;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        h2 {
+            color: #ff6347;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease-in-out 0.5s;
+        }
+
+        /* Subtext and Details */
+        .order-details {
+            font-size: 1.2em;
+            margin-top: 20px;
+            line-height: 1.6;
+            color: #555;
+            animation: fadeIn 2.5s ease-in-out 1s;
+        }
+
+        .order-details b {
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 30px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            margin-top: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+            transform: translateY(-4px);
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="order-container">
+        <h1>Your Order has been Placed!</h1>
+        <h2>Thank You for Your Purchase</h2>
+        <div class="order-details">
+            <p><b>Order Number:</b> #123456</p>
+            <p><b>Payment Method:</b> Online Payment (GPay)</p>
+            <p><b>Estimated Delivery:</b> 3-5 Business Days</p>
+            <p>Your order will be processed and shipped shortly. You will receive an email confirmation with your tracking details once your order has been dispatched.</p>
+            <p>If you have any questions, feel free to <a href="contact.html" style="color: #4caf50; text-decoration: none;">contact us</a> anytime.</p>
+        </div>
+        <button class="btn" onclick="window.location.href='index.html'">Back to Home</button>
+    </div>
+</body>
+</html>

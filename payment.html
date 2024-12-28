@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Body Styling */
+        body {
+            background-image: url('hg.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Main Payment Container */
+        .kamal1 {
+            background-color: rgba(240, 248, 255, 0.8);
+            padding: 40px;
+            width: 400px;
+            border-radius: 15px;
+            text-align: center;
+            color: rgb(0, 81, 255);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        /* Logo Styling */
+        .kamal3 {
+            height: 100px;
+            width: auto;
+            border-radius: 10px;
+            margin-top: -80px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        #kamal9 {
+            height: 100px;
+            width: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Title Styling */
+        h2 {
+            color: #ff6347;
+            text-decoration: underline;
+            font-size: 2em;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h3 {
+            color: #4682b4;
+            font-size: 1.4em;
+            margin-top: 10px;
+            animation: fadeIn 1.5s ease-in-out 0.5s;
+        }
+
+        /* Form Label Styling */
+        label {
+            font-size: 18px;
+            margin-top: 10px;
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        /* Input Fields Styling */
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
+            border-color: #ff6347;
+            outline: none;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        /* Radio Buttons Styling */
+        input[type="radio"] {
+            margin: 10px 5px;
+            accent-color: #ff6347;
+        }
+
+        /* Submit Button Styling */
+        #kamal8 {
+            background-color: rgb(255, 213, 0);
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            margin-top: 20px;
+            width: 100%;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #kamal8:hover {
+            background-color: #ff4500;
+            transform: translateY(-4px);
+        }
+
+        #kamal8:active {
+            transform: translateY(2px);
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <a href="index.html"><img class="kamal3" src="HOMEE.png" alt="home"></a>
+    <div class="kamal1">
+        <img id="kamal9" src="LOGO.jpg" alt="logo">
+        <h2>FASHOHUB</h2>
+        <h3 class="kamal2">Payment Detail</h3>
+        <form id="payment-form">
+            <label>Name</label> 
+            <input type="text" placeholder="Enter Your Name Here" id="kamal1" required>
+            <br><br>
+
+            <label>Phone Number</label>
+            <input type="number" placeholder="Enter your Mobile Number" required>
+            <br><br>
+
+            <label>Address</label>
+            <textarea name="" id="kamal5" placeholder="Enter Your Address" required></textarea>
+            <br><br>
+
+            <label>Payment Mode</label>
+            <input type="radio" name="payment" id="cash" required>Cash
+            <input type="radio" name="payment" id="online" required>Online
+            <br><br>
+
+            <label>Payment Type</label>
+            <select name="paymentType" id="paymentType" required>
+                <option value="1">CHOOSE</option>
+                <option value="2">UPI</option>
+                <option value="3">Card</option>
+                <option value="4">Net Banking</option>
+            </select>
+            <br><br>
+        </form>
+        <button id="kamal8" onclick="submitForm()">Place Order</button>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Get form elements
+            const form = document.getElementById('payment-form');
+            const name = document.getElementById('kamal1').value.trim();
+            const phone = document.querySelector('input[type="number"]').value.trim();
+            const address = document.getElementById('kamal5').value.trim();
+            const paymentMode = document.querySelector('input[name="payment"]:checked');
+            const paymentType = document.getElementById('paymentType').value;
+
+            // Validate the form inputs
+            if (!name || !phone || !address || !paymentMode || paymentType === "1") {
+                alert("Please fill in all the required fields and choose a payment method.");
+                return;
+            }
+
+            // Display confirmation
+            alert("Your Order has been placed successfully!\nThank you for shopping with us!");
+
+            // Optionally, redirect to another page (like an order confirmation page)
+            window.location.href = "order.html";  // Replace with the actual confirmation page URL
+        }
+    </script>
+</body>
+</html>
