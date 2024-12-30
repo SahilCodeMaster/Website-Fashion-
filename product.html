@@ -195,6 +195,105 @@ h2.kamal1 {
 div {
     padding: 10px;
 }
+/* Styles for Total Price Section on the Left */
+#total-price-container {
+    position: fixed;
+    left: 20px;
+    top: 100px;
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#total-price-container h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+#total-price-container span {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Adjustments for Floating Cart Section */
+#cart-container {
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    font-size: 1.1em;
+}
+
+#cart-items {
+    max-height: 250px;
+    overflow-y: auto;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+.cartImg {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.cartImg img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.cartImg .details {
+    flex-grow: 1;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.cartImg .details span {
+    display: block;
+    margin: 3px 0;
+}
+
+.place-order-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 0;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.place-order-btn:hover {
+    background-color: #45a049;
+}
+
+
 
     </style>
 </head>
@@ -256,12 +355,60 @@ div {
     </div>
 
     <!-- Floating Cart Container to Display Added Items -->
+    
     <div id="cart-container">
         <h3>Your Cart:</h3>
         <div id="cart-items"></div>
+        <!-- Total Price Display -->
+        <div id="total-price-container" style="margin-top: 15px; font-size: 1.2em; font-weight: bold; color: #333;">
+            Total Price: <span id="total-price">$0.00</span>
+        </div>
         <!-- Place Order Button -->
-      <a href="payment.html">  <button class="place-order-btn" onclick="placeOrder()">Place Order</button></a> 
+        <a href="payment.html">
+            <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
+        </a>
     </div>
+<script>
+    // Initialize cart and total price
+    const cartItems = [];
+    let totalPrice = 0;
+    
+    // Function to add items to the cart
+    function addTocart(box) {
+        const productName = box.getAttribute('data-name');
+        const productPrice = parseFloat(box.getAttribute('data-price'));
+    
+        // Add product details to the cart array
+        cartItems.push({ name: productName, price: productPrice });
+    
+        // Update cart display
+        const cartItemsContainer = document.getElementById('cart-items');
+        const itemElement = document.createElement('div');
+        itemElement.className = 'cartImg';
+        itemElement.innerHTML = `
+            <img src="${box.querySelector('img').src}" alt="${productName}">
+            <div class="details">
+                <span>${productName}</span>
+                <span>$${productPrice.toFixed(2)}</span>
+            </div>
+        `;
+        cartItemsContainer.appendChild(itemElement);
+    
+        // Update total price
+        totalPrice += productPrice;
+        document.getElementById('total-price').textContent = `$${totalPrice.toFixed(2)}`;
+    }
+    
+    // Function to handle place order button
+    function placeOrder() {
+        if (cartItems.length === 0) {
+            alert('Your cart is empty!');
+            return;
+        }
+    
+        alert(`Your total order price is $${totalPrice.toFixed(2)}. Redirecting to payment page...`);
+    }
+    </script>
 
 </body>
 </html>
