@@ -12,28 +12,19 @@ nav{
     background-color: #eeeeee;
     box-shadow: 0px 2px 2px 2px rgb(204, 203, 203);
     padding: 20px;
-
-
-
-}
- 
-nav .logo{
+}nav .logo{
     margin-left: 45px;
     font-size:22px;
-    
-}
-nav h1{
+    }nav h1{
     font-family: 'Lato', sans-serif;
 }
 ul li a{
     margin-inline: 25px;
      font-size: 20px;
-     
-}
+     }
 ul #home{
     color: rgb(1, 190, 190);
-}
-ul li i{
+}ul li i{
     font-size: 22px;
 }
 ul li i:hover{
@@ -45,8 +36,7 @@ ul li a:hover{
      cursor: pointer;
 
      border-bottom: 2px solid rgb(73, 73, 73);
-      
-}
+      }
 ul{
     margin-right: 50px;
     margin-top: 6px;
@@ -67,16 +57,13 @@ nav ul{
     background-color: transparent;
     font-weight: 700;
     color: rgb(4, 168, 168);
-    
-
-}
+    }
 .text h1{
     font-size: 54px;
 }
 .mainPage img{
    margin-top: -44px;
-   
-}
+   }
 .heads{
     color: rgb(2, 131, 131);
 }
@@ -96,17 +83,13 @@ nav ul{
     color: white;
     font-size: 22px;
     cursor: pointer;
-}
-
-.head{
+}.head{
     text-align: center;
     padding: 44px;
     margin-top: 11px;
-}
-.head span{
+}.head span{
     color: rgb(4, 155, 155);
-}
-.card{
+}.card{
     display: flex;
     justify-content: center;
     padding: 22px;
@@ -116,8 +99,7 @@ nav ul{
     height: 500px;
     background-color: #fff;
     margin-inline: 22px;
-    
-}
+    }
 .card .crd:hover{
     width: 320px;
     height: 520px;
@@ -125,13 +107,11 @@ nav ul{
 }
 .crd .txt {
     margin-left: 28px;
- 
-}
+ }
 .txt i{
     color: rgb(255, 196, 0);
     margin-top: 4px;
-    font-size:19px;
-}
+    font-size:19px;}
 .txt button{
     width: 110px;
     height: 33px;
@@ -151,18 +131,14 @@ nav ul{
 .trd{
     display: flex;
     justify-content: center;
-    
-     
-}
+    }
 .trending{
     display: flex;
     width: 500px;
     height: 300px;
     background-color: #fff;
     margin-inline: 22px;
-    border-radius: 22px;
-
-}
+    border-radius: 22px;}
 .trending .txt{
     padding: 22px;
     margin-top: 13%;
@@ -192,9 +168,7 @@ nav ul{
     height: 330px;
     transition: 0.7s ease;
     cursor: pointer;
-}
-
-.letter{
+}.letter{
     background-color: rgba(11, 6, 37, 0.993);
     padding: 44px;
     margin-top: 63px;
@@ -235,21 +209,14 @@ nav ul{
 }
 .Ftext p{
     margin-top: 22px;
-}
-
-
-/* about */
-
-.about{
+}.about{
     display: none;
 }
 .aboutText{
     background-color: rgb(1, 1, 43);
     color: white;
     padding: 54px;
-    font-size: 18px;
-
-}
+    font-size: 18px;}
 .aboutus{
     display: flex;
     justify-content: center;
@@ -270,9 +237,6 @@ nav ul{
 .aboutus img{
     width: 54%;
 }
-
-/* contact */
-
 .contact{
     display: none;
 }
@@ -285,9 +249,7 @@ nav ul{
     display: flex;
     justify-content: center;
     margin-top: 33px;
-    
-    
-}
+    }
 .connectText{
     background-color: #fff;
     padding: 53px;
@@ -323,11 +285,7 @@ nav ul{
     outline: none;
     margin: 3px;
     margin-top: 11px;
-}
-
-/* FullPage */
-
-.fullPage{
+}.fullPage{
     
     display: flex;
     justify-content: center;
@@ -449,7 +407,6 @@ nav ul{
 .authContainer h2 {
     margin-bottom: 20px;
 }
-
 .authContainer input {
     width: 100%;
     padding: 10px;
@@ -458,7 +415,6 @@ nav ul{
     border-radius: 5px;
     font-size: 16px;
 }
-
 .authContainer button {
     background: #007bff;
     color: white;
@@ -468,11 +424,9 @@ nav ul{
     font-size: 16px;
     cursor: pointer;
 }
-
 .authContainer button:hover {
     background: #0056b3;
 }
-
 .authContainer p {
     margin-top: 15px;
 }
