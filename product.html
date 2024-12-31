@@ -3,367 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page</title>
-    <link rel="stylesheet" href="product1.css">
-    <script type="text/javascript" src="addtocart.js"></script>
+    <title>Flipkart Style Product Page</title>
     <style>
-body {
-    background-image: url('hg.jpg');
-    background-size: cover; 
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-#bix1{
-margin-top: -3%;
-}
-h2.kamal1 {
-    text-align: center;
-    font-size: 2.5em;
-    font-weight: bold;
-    color: #fff;
-    margin-top: 30px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-}
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-/* Product Box Styles */
-.kamal9 {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: 30px auto;
-    padding: 10px;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            color: #333;
+        }
 
-.box {
-    width: 220px;
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-}
+        .header {
+            background-color: #449fe9;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.5rem;
+            position: relative;
+        }
 
-.box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
+        .home-button {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            background-color: white;
+            color: #1baae3;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
 
-.box img {
+        .home-button:hover {
+            background-color: #185cc5;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .product {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 1rem;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-}
+    max-height: 200px; /* Prevent images from becoming too tall */
+    object-fit: contain; /* Ensure the entire image is visible */
+    border-bottom: 1px solid #ddd;
+} .product h3 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
 
-.box span {
-    font-size: 1.1em;
-    font-weight: 600;
-    color: #333;
-    margin-top: 10px;
-    display: block;
-}
+        .product p {
+            font-size: 1rem;
+            color: #555;
+        }
 
-.box p {
-    font-size: 1em;
-    margin: 10px 0;
-    color: #555;
-}
+        .product button {
+            background-color: #2874f0;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 1rem 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
 
-.btn {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-}
+        .product button:hover {
+            background-color: #185cc5;
+        }
 
-.btn:hover {
-    background-color: #45a049;
-}
+        .cart {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 500px;
+            margin: 2rem auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+        }
 
-.kamal2, .kamal3, .kamal4, .kamal5 {
-    font-size: 1em;
-    color: #4CAF50;
-    font-weight: bold;
-}
+        .cart h3 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
 
-/* Floating Cart Styles */
-#cart-container {
-    position: fixed;
-    right: 20px;
-    top: 100px;
-    width: 250px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid #ddd;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    font-size: 1.1em;
-}
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
 
-#cart-container h3 {
-    text-align: center;
-    font-size: 1.6em;
-    margin-bottom: 20px;
-    color: #4CAF50;
-    font-weight: 600;
-}
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
 
-#cart-items {
-    max-height: 250px;
-    overflow-y: auto;
-    margin-top: 10px;
-    font-size: 1em;
-    color: #555;
-}
+        .cart-item div {
+            flex: 1;
+            margin-left: 1rem;
+        }
 
-.cartImg {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
+        .cart-total {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 1rem;
+        }
 
-.cartImg img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 10px;
-}
+        .checkout {
+            background-color: #2874f0;
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            border-radius: 5px;
+            margin-top: 1rem;
+            cursor: pointer;
+        }
 
-.cartImg .details {
-    flex-grow: 1;
-    font-size: 0.9em;
-    text-align: left;
-}
+        .checkout:hover {
+            background-color: #185cc5;
+        }
 
-.cartImg .details span {
-    display: block;
-    margin: 3px 0;
-}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
 
-.place-order-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 0;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-}
+            .product {
+                width: 90%;
+            }
 
-.place-order-btn:hover {
-    background-color: #45a049;
-}
-
-/* Home and Cart Button Styles */
-.home, .home2 {
-    width: 60px;
-    position: fixed;
-    top: 20px;
-    z-index: 100;
-}
-
-.home {
-    left: 20px;
-}
-
-.home2 {
-    right: 20px;
-    top: 80px;
-}
-
-/* Additional Styling */
-div {
-    padding: 10px;
-}
-/* Styles for Total Price Section on the Left */
-#total-price-container {
-    position: fixed;
-    left: 20px;
-    top: 100px;
-    width: 250px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid #ddd;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    font-size: 1.2em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-#total-price-container h3 {
-    font-size: 1.6em;
-    margin-bottom: 15px;
-    color: #4CAF50;
-    font-weight: bold;
-}
-
-#total-price-container span {
-    font-size: 1.5em;
-    color: #333;
-    font-weight: bold;
-}
-
-/* Adjustments for Floating Cart Section */
-#cart-container {
-    position: fixed;
-    right: 20px;
-    top: 100px;
-    width: 250px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid #ddd;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    font-size: 1.1em;
-}
-#cart-items {
-    max-height: 250px;
-    overflow-y: auto;
-    margin-top: 10px;
-    font-size: 1em;
-    color: #555;
-}.cartImg {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.cartImg img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 10px;
-}.cartImg .details {
-    flex-grow: 1;
-    font-size: 0.9em;
-    text-align: left;
-}
-
-.cartImg .details span {
-    display: block;
-    margin: 3px 0;
-}.place-order-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 0;
-    width: 100%;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-}.place-order-btn:hover {
-    background-color: #45a049;
-}
-</style>
+            .cart {
+                width: 90%;
+                margin: 1rem auto;
+            }
+        }
+    </style>
 </head>
 <body>
-    <a href="index.html"><img src="HOMEE.png" alt="home" class="home"></a>
-    <img src="LOGO.jpg" id="bix1" alt="home" class="home2">
-    <h2 class="kamal1">Our CLOTHES</h2>
-
-    <div class="kamal9">
-        <!-- Product Boxes -->
-        <div class="box" data-name="shirt" data-price="3400">
-            <img src="srt1.webp" alt="shirt"><br>
-            <span class="kamal2">Shirt</span>
-            <br>PRICE : 3400 <br>
-            <button class="btn" onclick="addTocart(this.closest('.box'))">Buy Now</button>
-        </div>
-        <div class="box" data-name="SAFARI SHIRT" data-price="1500">
-            <img src="srt2.webp" alt="Oil"><br>
-            <span class="kamal3">SAFARI SHIRT</span>
-            <br>Price : 1500 <br>
-            <button class="btn" onclick="addTocart(this.closest('.box'))">Buy Now</button>
-        </div>
-        <div class="box" data-name="CASUAL SHIRT" data-price="1500">
-            <img src="srt6.webp" alt="Pulses"><br>
-            <span class="kamal4">CASUAL SHIRT</span>
-            <br>PRICE : 1500 <br>
-            <button class="btn" onclick="addTocart(this.closest('.box'))">Buy Now</button>
-        </div>
-        <div class="box" data-name="TRADITIONAL" data-price="7000">
-            <img src="tr1.webp" alt="TRADITIONAL"><br>
-            <span class="kamal5">TRADITIONAL</span>
-            <br>PRICE : 7000 <br>
-            <button class="btn" onclick="addTocart(this.closest('.box'))">Buy Now</button>
-        </div> </div><div class="kamal9">
-        <div class="box" data-name="WESTERN" data-price="3566">
-            <img src="wn4.webp" alt="WESTERN"><br>
-            <span>WESTERN</span>
-            <br>PRICE : 3566 <br>
-            <button class="btn" onclick="addTocart(this.closest('.box'))">Buy Now</button>
-        </div>
-        <div class="box" data-name="ITALIAN" data-price="4500">
-            <img src="wn5.webp" alt="Sugar"><br>
-            <span class="kamal2">ITALIAN</span>
-            <br>PRICE : 4500 <br>
-            <button class="btn" onclick="addTocart(this.closest('.box'))">Buy Now</button>
-        </div>
-        <div class="box" data-name="CASUAL" data-price="2800">
-            <img src="wn6.webp" alt="Salt"><br>
-            <span class="kamal3">CASUAL</span>
-            <br>Price : 2800 <br>
-            <button class="btn" onclick="addTocart(this.closest('.box'))">Buy Now</button>
-        </div>
-        </div><div id="cart-container">
-        <h3>Your Cart:</h3>
-        <div id="cart-items"></div>
-        <div id="total-price-container" style="margin-top: 15px; font-size: 1.2em; font-weight: bold; color: #333;">
-            Total Price: <span id="total-price">$0.00</span>
-        </div>
-        <a href="payment.html">
-            <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
-        </a>
+    <div class="header">
+        FASHOHUB
+        <a href="#" class="home-button">Home</a>
     </div>
-<script>
-    const cartItems = [];
-    let totalPrice = 0;
-    function addTocart(box) {
-        const productName = box.getAttribute('data-name');
-        const productPrice = parseFloat(box.getAttribute('data-price'));
-        cartItems.push({ name: productName, price: productPrice });
-        const cartItemsContainer = document.getElementById('cart-items');
-        const itemElement = document.createElement('div');
-        itemElement.className = 'cartImg';
-        itemElement.innerHTML = `
-            <img src="${box.querySelector('img').src}" alt="${productName}">
-            <div class="details">
-                <span>${productName}</span>
-                <span>$${productPrice.toFixed(2)}</span>
-            </div>
-        `;
-        cartItemsContainer.appendChild(itemElement);
-        totalPrice += productPrice;
-        document.getElementById('total-price').textContent = `$${totalPrice.toFixed(2)}`; }
-    function placeOrder() {
-        if (cartItems.length === 0) {
-            alert('Your cart is empty!');
-            return;
-        } alert(`Your total order price is $${totalPrice.toFixed(2)}. Redirecting to payment page...`);}
-    </script></body>
+
+    <div class="container">
+        <div class="product" data-name="Shirt" data-price="500">
+            <img src="srt1.webp" alt="Shirt">
+            <h3>Shirt</h3>
+            <p>Price: $500</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-name="Jeans" data-price="800">
+            <img src="srt2.webp" alt="Jeans">
+            <h3>Jeans</h3>
+            <p>Price: $800</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-name="Shoes" data-price="1200">
+            <img src="srt6.webp" alt="Shoes">
+            <h3>Shoes</h3>
+            <p>Price: $1200</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-name="Watch" data-price="1500">
+            <img src="tr1.webp" alt="Watch">
+            <h3>Watch</h3>
+            <p>Price: $1500</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-name="Bag" data-price="1000">
+            <img src="wn4.webp" alt="Bag">
+            <h3>Bag</h3>
+            <p>Price: $1000</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-name="Cap" data-price="300">
+            <img src="wn5.webp" alt="Cap">
+            <h3>Cap</h3>
+            <p>Price: $300</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+
+        <div class="product" data-name="Sunglasses" data-price="900">
+            <img src="wn6.webp" alt="Sunglasses">
+            <h3>Sunglasses</h3>
+            <p>Price: $900</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="cart" id="cart">
+        <h3>Your Cart</h3>
+        <div id="cart-items"></div>
+        <div class="cart-total" id="cart-total">Total: $0</div>
+        <div class="checkout" onclick="redirectToCheckout()">Checkout</div>
+    </div>
+
+    <script>
+        let cart = [];
+        let totalPrice = 0;
+
+        function addToCart(button) {
+            const product = button.closest('.product');
+            const name = product.getAttribute('data-name');
+            const price = parseFloat(product.getAttribute('data-price'));
+
+            cart.push({ name, price });
+            totalPrice += price;
+
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            cartItemsContainer.innerHTML = '';
+
+            cart.forEach((item) => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="https://via.placeholder.com/50" alt="${item.name}">
+                    <div>
+                        <p>${item.name}</p>
+                        <p>$${item.price.toFixed(2)}</p>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            document.getElementById('cart-total').textContent = `Total: $${totalPrice.toFixed(2)}`;
+        }
+        function redirectToCheckout() {
+    // Specify the URL to redirect to
+    window.location.href = "payment.html";
+}
+
+    </script>
+</body>
 </html>
