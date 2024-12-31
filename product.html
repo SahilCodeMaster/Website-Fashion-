@@ -7,11 +7,9 @@
     <link rel="stylesheet" href="product1.css">
     <script type="text/javascript" src="addtocart.js"></script>
     <style>
-        /* Style for floating cart section */
-       /* General Page Styles */
 body {
     background-image: url('hg.jpg');
-    background-size: cover; /* Ensure background covers entire page */
+    background-size: cover; 
     font-family: 'Arial', sans-serif;
     color: #333;
     margin: 0;
@@ -20,8 +18,6 @@ body {
 #bix1{
 margin-top: -3%;
 }
-
-/* Header Style */
 h2.kamal1 {
     text-align: center;
     font-size: 2.5em;
@@ -242,16 +238,13 @@ div {
     z-index: 1000;
     font-size: 1.1em;
 }
-
 #cart-items {
     max-height: 250px;
     overflow-y: auto;
     margin-top: 10px;
     font-size: 1em;
     color: #555;
-}
-
-.cartImg {
+}.cartImg {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
@@ -263,9 +256,7 @@ div {
     object-fit: cover;
     border-radius: 5px;
     margin-right: 10px;
-}
-
-.cartImg .details {
+}.cartImg .details {
     flex-grow: 1;
     font-size: 0.9em;
     text-align: left;
@@ -274,9 +265,7 @@ div {
 .cartImg .details span {
     display: block;
     margin: 3px 0;
-}
-
-.place-order-btn {
+}.place-order-btn {
     background-color: #4CAF50;
     color: white;
     padding: 12px 0;
@@ -287,15 +276,10 @@ div {
     font-size: 1.1em;
     transition: background-color 0.3s ease;
     margin-top: 20px;
-}
-
-.place-order-btn:hover {
+}.place-order-btn:hover {
     background-color: #45a049;
 }
-
-
-
-    </style>
+</style>
 </head>
 <body>
     <a href="index.html"><img src="HOMEE.png" alt="home" class="home"></a>
@@ -327,12 +311,7 @@ div {
             <span class="kamal5">TRADITIONAL</span>
             <br>PRICE : 7000 <br>
             <button class="btn" onclick="addTocart(this.closest('.box'))">Buy Now</button>
-        </div>
-       
-    </div>
-
-    <div class="kamal9">
-        <!-- More Product Boxes -->
+        </div> </div><div class="kamal9">
         <div class="box" data-name="WESTERN" data-price="3566">
             <img src="wn4.webp" alt="WESTERN"><br>
             <span>WESTERN</span>
@@ -351,37 +330,23 @@ div {
             <br>Price : 2800 <br>
             <button class="btn" onclick="addTocart(this.closest('.box'))">Buy Now</button>
         </div>
-       
-    </div>
-
-    <!-- Floating Cart Container to Display Added Items -->
-    
-    <div id="cart-container">
+        </div><div id="cart-container">
         <h3>Your Cart:</h3>
         <div id="cart-items"></div>
-        <!-- Total Price Display -->
         <div id="total-price-container" style="margin-top: 15px; font-size: 1.2em; font-weight: bold; color: #333;">
             Total Price: <span id="total-price">$0.00</span>
         </div>
-        <!-- Place Order Button -->
         <a href="payment.html">
             <button class="place-order-btn" onclick="placeOrder()">Place Order</button>
         </a>
     </div>
 <script>
-    // Initialize cart and total price
     const cartItems = [];
     let totalPrice = 0;
-    
-    // Function to add items to the cart
     function addTocart(box) {
         const productName = box.getAttribute('data-name');
         const productPrice = parseFloat(box.getAttribute('data-price'));
-    
-        // Add product details to the cart array
         cartItems.push({ name: productName, price: productPrice });
-    
-        // Update cart display
         const cartItemsContainer = document.getElementById('cart-items');
         const itemElement = document.createElement('div');
         itemElement.className = 'cartImg';
@@ -393,22 +358,12 @@ div {
             </div>
         `;
         cartItemsContainer.appendChild(itemElement);
-    
-        // Update total price
         totalPrice += productPrice;
-        document.getElementById('total-price').textContent = `$${totalPrice.toFixed(2)}`;
-    }
-    
-    // Function to handle place order button
+        document.getElementById('total-price').textContent = `$${totalPrice.toFixed(2)}`; }
     function placeOrder() {
         if (cartItems.length === 0) {
             alert('Your cart is empty!');
             return;
-        }
-    
-        alert(`Your total order price is $${totalPrice.toFixed(2)}. Redirecting to payment page...`);
-    }
-    </script>
-
-</body>
+        } alert(`Your total order price is $${totalPrice.toFixed(2)}. Redirecting to payment page...`);}
+    </script></body>
 </html>
