@@ -170,7 +170,7 @@
 <body>
     <div class="header">
         FASHOHUB
-        <a href="index.html" class="home-button">Home</a>
+        <a href="#" class="home-button">Home</a>
     </div>
 
     <div class="container">
@@ -181,44 +181,44 @@
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
 
-        <div class="product" data-name="Jeans" data-price="800">
+        <div class="product" data-name="CASUAL" data-price="800">
             <img src="srt2.webp" alt="Jeans">
-            <h3>Jeans</h3>
+            <h3>CASUAL</h3>
             <p>Price: $800</p>
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
 
-        <div class="product" data-name="Shoes" data-price="1200">
+        <div class="product" data-name="ITALIAN" data-price="1200">
             <img src="srt6.webp" alt="Shoes">
-            <h3>Shoes</h3>
+            <h3>ITALIAN</h3>
             <p>Price: $1200</p>
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
 
-        <div class="product" data-name="Watch" data-price="1500">
+        <div class="product" data-name="WEDDING" data-price="1500">
             <img src="tr1.webp" alt="Watch">
-            <h3>Watch</h3>
+            <h3>WEDDING DRESS</h3>
             <p>Price: $1500</p>
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
 
-        <div class="product" data-name="Bag" data-price="1000">
+        <div class="product" data-name="CASUAL" data-price="1000">
             <img src="wn4.webp" alt="Bag">
-            <h3>Bag</h3>
+            <h3>CASUAL</h3>
             <p>Price: $1000</p>
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
 
-        <div class="product" data-name="Cap" data-price="300">
+        <div class="product" data-name="WESTERN" data-price="300">
             <img src="wn5.webp" alt="Cap">
-            <h3>Cap</h3>
+            <h3>WESTERN</h3>
             <p>Price: $300</p>
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
 
-        <div class="product" data-name="Sunglasses" data-price="900">
+        <div class="product" data-name="CULTURAL" data-price="900">
             <img src="wn6.webp" alt="Sunglasses">
-            <h3>Sunglasses</h3>
+            <h3>CULTURAL</h3>
             <p>Price: $900</p>
             <button onclick="addToCart(this)">Add to Cart</button>
         </div>
@@ -228,7 +228,7 @@
         <h3>Your Cart</h3>
         <div id="cart-items"></div>
         <div class="cart-total" id="cart-total">Total: $0</div>
-        <div class="checkout" onclick="redirectToCheckout()">Checkout</div>
+        <div class="checkout" onclick="redirectToCheckout()">PURCHASE</div>
     </div>
 
     <script>
@@ -254,7 +254,7 @@
                 const cartItem = document.createElement('div');
                 cartItem.className = 'cart-item';
                 cartItem.innerHTML = `
-                    <img src="https://via.placeholder.com/50" alt="${item.name}">
+                   
                     <div>
                         <p>${item.name}</p>
                         <p>$${item.price.toFixed(2)}</p>
