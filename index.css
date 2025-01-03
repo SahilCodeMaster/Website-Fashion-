@@ -430,3 +430,136 @@ nav ul{
 .authContainer p {
     margin-top: 15px;
 }
+@media (max-width: 768px) {
+    /* Body and Navigation */
+    body {
+        padding: 0 10px;
+    }
+    nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    nav .logo {
+        margin: 0;
+        font-size: 18px;
+    }
+    nav ul {
+        margin: 10px 0 0;
+        padding: 0;
+    }
+    ul li a {
+        margin-inline: 10px;
+        font-size: 16px;
+    }
+
+    /* Main Page */
+    .mainPage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .mainPage .text {
+        margin: 20px 0;
+    }
+    .mainPage img {
+        width: 90%;
+        margin: 10px 0;
+    }
+    .text h1 {
+        font-size: 32px;
+    }
+    .text p {
+        font-size: 16px;
+    }
+    .text button {
+        width: 120px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    /* Cards */
+    .card {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card .crd {
+        width: 90%;
+        height: auto;
+        margin: 15px 0;
+    }
+
+    /* Trending Section */
+    .trd {
+        flex-direction: column;
+        align-items: center;
+    }
+    .trending {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+    }
+    .trending img {
+        width: 100%;
+    }
+    .trending .txt {
+        margin: 20px 0;
+        text-align: center;
+    }
+
+    /* Newsletter */
+    .letter {
+        flex-direction: column;
+        text-align: center;
+    }
+    .letter .inp {
+        flex-direction: column;
+        align-items: center;
+    }
+    .letter .inp input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .letter .inp button {
+        width: 100%;
+    }
+
+    /* Footer */
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer .Ftext {
+        margin: 10px 0;
+    }
+}
+
+/* Smaller Mobile Devices */
+@media (max-width: 480px) {
+    .text h1 {
+        font-size: 24px;
+    }
+    .text p {
+        font-size: 14px;
+    }
+    .text button {
+        font-size: 16px;
+        height: 30px;
+    }
+    .card .crd {
+        width: 100%;
+    }
+    .trending {
+        width: 100%;
+    }
+    .letter .inp input,
+    .letter .inp button {
+        width: 100%;
+    }
+    .footer .Ftext p {
+        font-size: 14px;
+    }
+}
+
